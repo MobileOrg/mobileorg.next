@@ -20,7 +20,11 @@
 
 ***** Links
       Org on the mac can link to Apple Mail messages. Those links
-      could be used on iOS to link to the according message in iOS Mail.
+      could be used on iOS to link to the according message in iOS
+      Mail.
+
+      Links to other Org files must resolve on iOS as long as those
+      files are present resp. reachable.
      
 
 **** Agenda
@@ -43,8 +47,24 @@
      to the note if configured.
 
 
-*** Encryption
+**** Capture
+     
+     Creating new notes are handled as [[Capture][Captures]]. All configured
+     templates must be accessible if it makes sense in the current scope.
 
+
+*** Siri Integration
+    
+    It should be possible to create new captures by triggering
+    Siri. Captures could be:
+    - Tasks
+    - Notes
+
+    References:
+    /MobileOrg/mobileorg#148/
+    [[Siri]]
+
+*** Encryption
 
     Some org files are encrypted on the user's desktop machine. These
     files must be readable on the iOS device as well. As the phone is
@@ -76,7 +96,7 @@
 *** Syncing
 
     The current approach to access Org files is by utilising
-    ~irg.mobile.el~, because it is the most reliable solution in
+    ~org.mobile.el~, because it is the most reliable solution in
     regards to occurence of conflicts.
 
     Other methods could be plugged in at a later stage by making use
@@ -168,6 +188,7 @@
     Examples of settings which could be set on desktop:
 
     - Logbook in Drawer (~(setq org-log-into-drawer 'LOGBOOK)~)
+    - [[Capture]] Templates
 
 
 *** UI
@@ -177,3 +198,17 @@
 
     The dynamic nature of the UI could be triggered by settings or by
     org files.
+
+*** OS Integration
+
+**** Siri
+     
+     Siri could not be utilised by SiriKit as the necessary keywords
+     as 'remind me' or 'take note' are reserved for the use with the
+     internal Reminders and Notes applications.
+     
+     One way to get Siri work with MobileOrg is to create a list in
+     Reminders resp. a folder in Notes and set them as
+     default. MobileOrg would then listen to this list or folder and
+     if a new item is present it would move the item as a new capture
+     to it's internal store.
