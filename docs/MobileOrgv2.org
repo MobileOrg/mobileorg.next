@@ -1,8 +1,19 @@
 * Mobile Org (v2)
 
+  This document contains all the requirements, constraints and the
+  software architecture for the next release of MobileOrg.
+
+  Whilst the software architecture has it's own chapter, requirements
+  and constraints are mixed in whole document.
+
+  All the links in this document are Org mode links which are not
+  resolved properly if you read this document in GitHub webview.
+
 ** Features
 
 *** App Extensions
+
+    With iOS 8 Apple has introduced
 
 **** Capture
 
@@ -26,9 +37,44 @@
       Links to other Org files must resolve on iOS as long as those
       files are present resp. reachable.
      
+**** Editor
+
+***** Autocompletion
+
+      Properties known to org like tags or internal links should be
+      autocompleted in the editor.
+
+      List of properties for autocompletion:
+      - tags
+      - internal links (using internal id or name)
+      - dates
+      - Keywords
+	- scheduled
+	- deadline
+	- name
+	- id
+
+     |--------------+------|
+     | References:  |      |
+     |--------------+------|
+     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/149][#149]] |
+     | Architecture |      |
+     |--------------+------|
+
 
 **** Agenda
+
      Configurable Agenda views mmust be provided to the user.
+     
+     Furthermore Agenda views already configured in Org mode should be
+     transfered to MobileOrg.
+
+     |--------------+------|
+     | References:  |      |
+     |--------------+------|
+     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/145][#145]] |
+     | Architecture |      |
+     |--------------+------|
 
 
 **** Note Actions
@@ -60,9 +106,13 @@
     - Tasks
     - Notes
 
-    References:
-    /MobileOrg/mobileorg#148/
-    [[Siri]]
+    |--------------+------|
+    | References:  |      |
+    |--------------+------|
+    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/148][#148]] |
+    | Architecture | [[Siri]] |
+    |--------------+------|
+    
 
 *** Encryption
 
