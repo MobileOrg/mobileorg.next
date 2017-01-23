@@ -1,0 +1,155 @@
+* Mobile Org (v2)
+** Features
+
+*** App Extensions
+
+**** Capture
+     Captures could be triggered either by an today-extension or by
+     sharing content from another app.
+     A selection of capture-templates should be presented to the user 
+     
+
+*** UI
+
+**** All Markdown
+     Markdown supported by Org should be also supported by
+     MobileOrg. A preview should be presented to the user whilst
+     editing a note.
+
+***** Links
+      Org on the mac can link to Apple Mail messages. Those links
+      could be used on iOS to link to the according message in iOS Mail.
+     
+**** Agenda
+     Configurable Agenda views mmust be provided to the user.
+
+**** Note Actions
+     The user must be able to take actions on notes. These actions
+     mirror the behaviour of Org on the desktion machine. 
+
+     Possible actions:
+     - Mark as TODO/DONE 
+       or individual keywords
+     - set SCHEDULED
+     - set DEADLINE
+
+
+**** Edit existing Note
+     When the user edit an existing note a Logbook entry must be added
+     to the note if configured.
+
+
+
+*** Encryption
+    Some org files are encrypted on the user's desktop machine. These
+    files must be readable on the iOS device as well. As the phone is
+    a protected single-user system, it ight not be necessary to
+    encrypt the files in the local storage.
+
+    Encyption methods used on desktop:
+
+    - symetrical encryption (supported by org-mobile.el)
+    - GnuPG
+
+
+** Software Architecture
+
+
+*** Storage
+
+*** Syncing
+
+*** Plugable Backends
+
+    The current version of MobileOrg supports only syncing over
+    ~mobile-org.el~. This method is reliable and robust but needs some
+    attention from the user. It is necessary to ~org-mobile-push~
+    before leaving the computer and triggering a ~org-mobile-pull~ to
+    sync changes once the user is back at the computer.
+
+    Demand is high for alternative approaches like working directly
+    with org-files without any stage area and using git. Git is a
+    popular choice because many users already use git to sync org
+    files with desktop machines.
+
+    With org-mobile.el a staging area is needed. At the moment only
+    WebDAV and Dropbox are supported. There is popular demand for
+    alternative cloud services like iCloud. These services could
+    be utilised for additional sync services as
+    described above. Because of that, the staging area is referenced as
+    cloud-storage within this document.
+
+    Regardless of the method chosen for syncing an internal storage is
+    needed. The currently selected choice is Core Data. But as there
+    are alternatives already present today an module-approach makes
+    sense for internal-storage, too.
+    
+
+    Possible Backends for MobileOrg could be:
+
+    - Sync - Backends
+      - ~mobile-org.el~
+      - plain org-files
+      - git
+      - rsync over ssh
+      - bit torrent
+
+    - Cloud - Storage
+      - WebDAV
+      - iCloud
+      - Dropbox
+      - Box (which has conflict resolution built in?)
+      - GitHub
+
+    - Internal - Storage
+      - Core Data
+      - Native Storage
+      - Org Files
+
+   #+CAPTION: Possible Backends
+   #+ATTR_HTML: width="300"
+   #+NAME: backends
+   [[./images/modules.png]]
+
+  Plugging at compile time should be sufficient. There is no need to
+  allow plugin of backend-modules at runtime.
+
+**** Properties of backend modules
+
+     Backend modules must be configured individually therefore it must
+     be possible to register modules to settings
+
+
+*** Settings
+    
+    Settings consist of a static and dynamic part. In the static part
+    it's possible to configure app properties like behaviour of app
+    badge. The dynamic part consists of settings individual for each
+    module which has registered for configuration-settings. Possible
+    entries for dynamic settings could be:
+
+    - Storage Backend
+    - Sync Backend
+    - Cloud Storage
+    - Internal Storage
+    - Encryption Provider
+
+    To support settings-registry protocols should be used.
+
+    If org-mobile.el is extended to transfer also Org configuration
+    these setting could be incorporated into Settings as
+    well. Settings which could be set on the desktop machine must
+    occur in Settings in a seperate block.
+
+    Examples of settings which could be set on desktop:
+
+    - Logbook in Drawer (~(setq org-log-into-drawer 'LOGBOOK)~)
+
+
+*** UI
+
+    MobileOrg's UI should support the user's work-flow. Therefore it
+    must be possible to change to UI according to one's needs.
+
+    The dynamic nature of the UI could be triggered by settings or by
+    org files.

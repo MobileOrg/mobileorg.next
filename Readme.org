@@ -1,0 +1,10 @@
+* MobileOrg v2 aka The Big Rewrite
+
+This repository hosts documentation, source code and all other files
+related to MobileOrg v2. Whereas feature requests are handled in the
+[[https://github.com/MobileOrg/mobileorg][main repository]], everything else like tasks or defects are handled
+here.
+
+Feature Requests which are related to the [[https://github.com/MobileOrg/mobileorg/milestone/1][v2 Milestone]] will be
+incorporated in the [[docs/MobileOrgv2#Features][feature list]].
+
