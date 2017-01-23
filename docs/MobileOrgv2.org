@@ -1,9 +1,11 @@
 * Mobile Org (v2)
+
 ** Features
 
 *** App Extensions
 
 **** Capture
+
      Captures could be triggered either by an today-extension or by
      sharing content from another app.
      A selection of capture-templates should be presented to the user 
@@ -20,8 +22,10 @@
       Org on the mac can link to Apple Mail messages. Those links
       could be used on iOS to link to the according message in iOS Mail.
      
+
 **** Agenda
      Configurable Agenda views mmust be provided to the user.
+
 
 **** Note Actions
      The user must be able to take actions on notes. These actions
@@ -39,8 +43,9 @@
      to the note if configured.
 
 
-
 *** Encryption
+
+
     Some org files are encrypted on the user's desktop machine. These
     files must be readable on the iOS device as well. As the phone is
     a protected single-user system, it ight not be necessary to
@@ -54,11 +59,28 @@
 
 ** Software Architecture
 
-
 *** Storage
 
+    There are plenty prossibilities to store information locally on
+    the iOS device. Core Data seems as the best to start with as it
+    allows to build easily the object model needed for storage. If at
+    a later stage another storage-method is added, the Core Data
+    object model could be easily reused.
+
+   #+CAPTION: Core Data object model
+   #+ATTR_HTML: width="300"
+   #+NAME: backends
+   [[./images/CoreData.png]]
+    
 
 *** Syncing
+
+    The current approach to access Org files is by utilising
+    ~irg.mobile.el~, because it is the most reliable solution in
+    regards to occurence of conflicts.
+
+    Other methods could be plugged in at a later stage by making use
+    of plugable backends.
 
 
 *** Plugable Backends
@@ -121,7 +143,7 @@
      Backend modules must be configured individually therefore it must
      be possible to register modules to settings
 
-
+     
 *** Settings
     
     Settings consist of a static and dynamic part. In the static part
