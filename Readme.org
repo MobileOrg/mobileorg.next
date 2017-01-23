@@ -6,5 +6,9 @@ related to MobileOrg v2. Whereas feature requests are handled in the
 here.
 
 Feature Requests which are related to the [[https://github.com/MobileOrg/mobileorg/milestone/1][v2 Milestone]] will be
-incorporated in the [[docs/MobileOrgv2#Features][feature list]].
+incorporated in the [[docs/MobileOrgv2.org#features][feature list]].
+
+To allow discussions on the specification there is a branch
+~specification~ where fine grained commits are allowed. This branch
+will be later squashed into the master/develop branch.
 
