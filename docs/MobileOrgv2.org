@@ -6,47 +6,11 @@
   Whilst the software architecture has it's own chapter, requirements
   and constraints are mixed in whole document.
 
-  All the links in this document are Org mode links which are not
-  resolved properly if you read this document in GitHub webview.
+  *All the links in this document are Org mode links. These are not
+  resolved properly if you read this document in GitHub webview.*
 
 ** Features
 
-*** App Extensions
-
-    With iOS 8 Apple has introduced so called Extensions. Extensions
-    could be Share-Extensions or Today-Extensions.
-
-**** Capture
-
-     Captures could be triggered either by an today-extension or by
-     sharing content from another app.
-     A selection of capture-templates should be presented to the user.
-
-     Capture templates already defined in Org should be accessible
-     within MobileOrg as well.
-
-     |--------------+------------|
-     | References:  |            |
-     |--------------+------------|
-     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/140][#140]], [[https://github.com/MobileOrg/mobileorg/issues/106][#106]] |
-     | Architecture | [[#architecture-capture][capture]]    |
-     |--------------+------------|
-
-
-**** Clocking
-
-   Clocking should be available on MobileOrg too. The feature must be
-   easily accessible by the user. If possible without the need to open
-   the app and to search a matching task.
-
-    |--------------+-----|
-    | References:  |     |
-    |--------------+-----|
-    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/25][#25]] |
-    | Architecture |     |
-    |--------------+-----|
-
-   
 *** UI
 
 **** Views
@@ -91,6 +55,7 @@
     |--------------+-----|
 
 
+
 **** Editor
 
 ***** Autocompletion
@@ -108,6 +73,7 @@
 	- name
 	- id
 
+
      |--------------+------|
      | References:  |      |
      |--------------+------|
@@ -117,11 +83,14 @@
 
 
 **** Agenda
+     :PROPERTIES:
+     :CUSTOM_ID: requirements-agenda
+     :END:
 
-     Configurable Agenda views mmust be provided to the user.
+     Configurable Agenda views must be provided to the user.
      
      Furthermore Agenda views already configured in Org mode should be
-     transfered to MobileOrg.
+     transfered to MobileOrg. [[#architecture-agenda][=> Architecture]]
 
      |--------------+------|
      | References:  |      |
@@ -210,6 +179,43 @@
     | Architecture |      |
     |--------------+------|
      
+
+*** Access from outside MobileOrg
+
+    With iOS 8 Apple has introduced so called Extensions. Extensions
+    could be Share-Extensions or Today-Extensions.
+
+**** Capture
+
+     Captures could be triggered either by an today-extension or by
+     sharing content from another app.
+     A selection of capture-templates should be presented to the user.
+
+     Capture templates already defined in Org should be accessible
+     within MobileOrg as well.
+
+     |--------------+------------|
+     | References:  |            |
+     |--------------+------------|
+     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/140][#140]], [[https://github.com/MobileOrg/mobileorg/issues/106][#106]] |
+     | Architecture | [[#architecture-capture][capture]]    |
+     |--------------+------------|
+
+
+**** Clocking
+
+   Clocking should be available on MobileOrg too. The feature must be
+   easily accessible by the user. If possible without the need to open
+   the app and to search a matching task.
+
+    |--------------+-----|
+    | References:  |     |
+    |--------------+-----|
+    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/25][#25]] |
+    | Architecture |     |
+    |--------------+-----|
+
+   
 
 *** Siri Integration
     
@@ -394,6 +400,28 @@
     The dynamic nature of the UI could be triggered by settings or by
     org files.
 
+**** Agenda
+     :PROPERTIES:
+     :CUSTOM_ID: architecture-agenda
+     :END:
+
+     Org mode's [[http://orgmode.org/manual/Agenda-Views.html#Agenda-Views][Agenda]] works as a container where the information
+     cluttered in the many org files is collected and displayed to the
+     user in an organised way.
+
+     The iOS' UI works completely different to the UI Emacs serves. To
+     provide a way where Org's agendas could be reused within
+     MobileOrg would complicate the software
+     architecture. Configurable Agendas could be solution to fulfil
+     the [[#requirements-agenda][requirement]] in some way.
+
+     #+CAPTION: Agenda like view on iOS
+     #+ATTR_HTML: width="300"
+     #+NAME: TaskView
+
+     [[./images/MobileOrgTaskView.png]]
+
+    
 
 *** OS Integration
 

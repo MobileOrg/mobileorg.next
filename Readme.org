@@ -5,10 +5,23 @@ related to MobileOrg v2. Whereas feature requests are handled in the
 [[https://github.com/MobileOrg/mobileorg][main repository]], everything else like tasks or defects are handled
 here.
 
-Feature Requests which are related to the [[https://github.com/MobileOrg/mobileorg/milestone/1][v2 Milestone]] will be
+Feature Requests which are related to the [[https://github.com/MobileOrg/mobileorg/issues?q=is%3Aissue+milestone%3Av2+is%3Aclosed][v2 Milestone]] will be
 incorporated in the [[docs/MobileOrgv2.org#features][feature list]].
 
 To allow discussions on the specification there is a branch
 ~specification~ where fine grained commits are allowed. This branch
 will be later squashed into the master/develop branch.
+
+
+** Requirements
+
+   Requirements are derived from [[https://github.com/MobileOrg/mobileorg/issues?q=is%3Aissue+milestone%3Av2+is%3Aclosed][feature requests]] and [[https://paper.dropbox.com/doc/The-Incubator-dznQbK5Su2BNAXZl48iPG][ideas]] which
+   where discussed in the past. Requirements could be added by feature
+   requests at any time. 
+
+   We are working on a [[docs/MobileOrgv2.org#software-architecture][specification]] which tries to cover as many of
+   the requirements as possible. Of course there might be conflicting
+   requirements or other things which might conclude the disregard of
+   some requirement. These will be discussed in the issues section of
+   this repository.
 
