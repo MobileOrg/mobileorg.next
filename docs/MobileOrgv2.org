@@ -1,24 +1,19 @@
 * Mobile Org (v2)
+  This document contains all the requirements, constraints and the software
+  architecture for the next release of MobileOrg.
 
-  This document contains all the requirements, constraints and the
-  software architecture for the next release of MobileOrg.
+  Whilst the software architecture has it's own chapter, requirements and
+  constraints are mixed in whole document.
 
-  Whilst the software architecture has it's own chapter, requirements
-  and constraints are mixed in whole document.
-
-  *All the links in this document are Org mode links. These are not
-  resolved properly if you read this document in GitHub webview.*
+  *All the links in this document are Org mode links. These are not resolved
+  properly if you read this document in GitHub webview.*
 
 ** Features
-
 *** UI
-
 **** Views
-     
 ***** Habits
-      
-      A view for [[http://orgmode.org/manual/Tracking-your-habits.html][habits]] should be available. The view should mimic
-      like the completion view in agenda.
+      A view for [[http://orgmode.org/manual/Tracking-your-habits.html][habits]] should be available. The view should mimic like the
+      completion view in agenda.
 
     |--------------+-------|
     | References:  |       |
@@ -27,25 +22,20 @@
     | Architecture |       |
     |--------------+-------|
 
-
 **** All Markdown
-     Markdown supported by Org should be also supported by
-     MobileOrg. A preview should be presented to the user whilst
-     editing a note.
+     Markdown supported by Org should be also supported by MobileOrg. A preview
+     should be presented to the user whilst editing a note.
 
 ***** Links
-      Org on the mac can link to Apple Mail messages. Those links
-      could be used on iOS to link to the according message in iOS
-      Mail.
+      Org on the mac can link to Apple Mail messages. Those links could be used
+      on iOS to link to the according message in iOS Mail.
 
-      Links to other Org files must resolve on iOS as long as those
-      files are present resp. reachable.
-     
+      Links to other Org files must resolve on iOS as long as those files are
+      present resp. reachable.
 
 ***** Checkboxes
-
-      Checkboxes should be displayed as actual checkboxes and should
-      be checkable.
+      Checkboxes should be displayed as actual checkboxes and should be
+      checkable.
 
     |--------------+-----|
     | References:  |     |
@@ -54,12 +44,8 @@
     | Architecture |     |
     |--------------+-----|
 
-
-
 **** Editor
-
 ***** Autocompletion
-
       Properties known to org like tags or internal links should be
       autocompleted in the editor.
 
@@ -68,11 +54,10 @@
       - internal links (using internal id or name)
       - dates
       - Keywords
-	- scheduled
-	- deadline
-	- name
-	- id
-
+      - scheduled
+      - deadline
+      - name
+      - id
 
      |--------------+------|
      | References:  |      |
@@ -81,14 +66,13 @@
      | Architecture |      |
      |--------------+------|
 
-
 **** Agenda
      :PROPERTIES:
      :CUSTOM_ID: requirements-agenda
      :END:
 
      Configurable Agenda views must be provided to the user.
-     
+
      Furthermore Agenda views already configured in Org mode should be
      transfered to MobileOrg. [[#architecture-agenda][=> Architecture]]
 
@@ -99,14 +83,12 @@
      | Architecture |      |
      |--------------+------|
 
-
 **** Note Actions
-     The user must be able to take actions on notes. These actions
-     mirror the behaviour of Org on the desktion machine. 
+     The user must be able to take actions on notes. These actions mirror the
+     behaviour of Org on the desktion machine.
 
      Possible actions:
-     - Mark as TODO/DONE 
-       or individual keywords
+     - Mark as TODO/DONE or individual keywords
      - set SCHEDULED
      - set DEADLINE
 
@@ -117,21 +99,19 @@
     | Architecture |     |
     |--------------+-----|
 
-
 **** Edit existing Note
-     When the user edit an existing note a Logbook entry must be added
-     to the note if configured.
+     When the user edit an existing note a Logbook entry must be added to the
+     note if configured.
 
      See also [[#architecture-capture][capture]]
-
 
 **** Capture
      :PROPERTIES:
      :CUSTOM_ID: architecture-capture
      :END:
-     
-     Creating new notes are handled as [[Capture][Captures]]. All configured
-     templates must be accessible if it makes sense in the current scope.
+
+     Creating new notes are handled as [[Capture][Captures]]. All configured templates must
+     be accessible if it makes sense in the current scope.
 
      The location of captures should be stored with the note.
 
@@ -142,8 +122,8 @@
     | Architecture |      |
     |--------------+------|
 
-    Whilst capturing (or editing) a Note there should be shortcuts
-    which allows to enter SCHEDULED or DEADLINE times easily.
+    Whilst capturing (or editing) a Note there should be shortcuts which allows
+    to enter SCHEDULED or DEADLINE times easily.
 
     |--------------+-----|
     | References:  |     |
@@ -152,12 +132,9 @@
     | Architecture |     |
     |--------------+-----|
 
-
 **** Refiling
-
-     Refiling like it is available in Org should be available in
-     MobileOrg too. Supported by selection lists which show the
-     refiling targets.
+     Refiling like it is available in Org should be available in MobileOrg too.
+     Supported by selection lists which show the refiling targets.
 
     |--------------+------|
     | References:  |      |
@@ -165,12 +142,9 @@
     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/109][#109]] |
     | Architecture |      |
     |--------------+------|
-     
-     
-**** Sharing 
 
-     Sharing content with other applications. Sharing should share all
-     content. 
+**** Sharing
+     Sharing content with other applications. Sharing should share all content.
 
     |--------------+------|
     | References:  |      |
@@ -178,21 +152,18 @@
     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/108][#108]] |
     | Architecture |      |
     |--------------+------|
-     
 
 *** Access from outside MobileOrg
-
-    With iOS 8 Apple has introduced so called Extensions. Extensions
-    could be Share-Extensions or Today-Extensions.
+    With iOS 8 Apple has introduced so called Extensions. Extensions could be
+    Share-Extensions or Today-Extensions.
 
 **** Capture
+     Captures could be triggered either by an today-extension or by sharing
+     content from another app. A selection of capture-templates should be
+     presented to the user.
 
-     Captures could be triggered either by an today-extension or by
-     sharing content from another app.
-     A selection of capture-templates should be presented to the user.
-
-     Capture templates already defined in Org should be accessible
-     within MobileOrg as well.
+     Capture templates already defined in Org should be accessible within
+     MobileOrg as well.
 
      |--------------+------------|
      | References:  |            |
@@ -201,12 +172,10 @@
      | Architecture | [[#architecture-capture][capture]]    |
      |--------------+------------|
 
-
 **** Clocking
-
-   Clocking should be available on MobileOrg too. The feature must be
-   easily accessible by the user. If possible without the need to open
-   the app and to search a matching task.
+   Clocking should be available on MobileOrg too. The feature must be easily
+   accessible by the user. If possible without the need to open the app and to
+   search a matching task.
 
     |--------------+-----|
     | References:  |     |
@@ -215,12 +184,9 @@
     | Architecture |     |
     |--------------+-----|
 
-   
-
 *** Siri Integration
-    
-    It should be possible to create new captures by triggering
-    Siri. Captures could be:
+    It should be possible to create new captures by triggering Siri. Captures
+    could be:
     - Tasks
     - Notes
 
@@ -230,25 +196,21 @@
     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/148][#148]] |
     | Architecture | [[Siri]] |
     |--------------+------|
-    
 
 *** Encryption
-
-    Some org files are encrypted on the user's desktop machine. These
-    files must be readable on the iOS device as well. As the phone is
-    a protected single-user system, it ight not be necessary to
-    encrypt the files in the local storage.
+    Some org files are encrypted on the user's desktop machine. These files must
+    be readable on the iOS device as well. As the phone is a protected
+    single-user system, it ight not be necessary to encrypt the files in the
+    local storage.
 
     Encyption methods used on desktop:
 
     - symetrical encryption (supported by org-mobile.el)
     - GnuPG
 
-
 *** Notifications
-    
-    For events triggered by SCHEDULED and DEADLINE a notification must
-    be sent to the user. This should be configurable by the user.
+    For events triggered by SCHEDULED and DEADLINE a notification must be sent
+    to the user. This should be configurable by the user.
 
     - First alert (amount of time)
     - Second alert (amount of time)
@@ -261,13 +223,10 @@
     | Architecture |      |
     |--------------+------|
 
-
 *** Syncing
-
 **** Sync Button
-
-     Sync functionality should be accessible at every time (in every
-     scope) if possible. 
+     Sync functionality should be accessible at every time (in every scope) if
+     possible.
 
     |--------------+-----|
     | References:  |     |
@@ -276,59 +235,47 @@
     | Architecture |     |
     |--------------+-----|
 
-
-
 ** Software Architecture
-
 *** Storage
-
-    There are plenty prossibilities to store information locally on
-    the iOS device. Core Data seems as the best to start with as it
-    allows to build easily the object model needed for storage. If at
-    a later stage another storage-method is added, the Core Data
-    object model could be easily reused.
+    There are plenty prossibilities to store information locally on the iOS
+    device. Core Data seems as the best to start with as it allows to build
+    easily the object model needed for storage. If at a later stage another
+    storage-method is added, the Core Data object model could be easily reused.
 
    #+CAPTION: Core Data object model
    #+ATTR_HTML: width="300"
    #+NAME: backends
    [[./images/CoreData.png]]
-    
 
 *** Syncing
+    The current approach to access Org files is by utilising ~org.mobile.el~,
+    because it is the most reliable solution in regards to occurence of
+    conflicts.
 
-    The current approach to access Org files is by utilising
-    ~org.mobile.el~, because it is the most reliable solution in
-    regards to occurence of conflicts.
-
-    Other methods could be plugged in at a later stage by making use
-    of plugable backends.
-
+    Other methods could be plugged in at a later stage by making use of plugable
+    backends.
 
 *** Plugable Backends
+    The current version of MobileOrg supports only syncing over ~mobile-org.el~.
+    This method is reliable and robust but needs some attention from the user.
+    It is necessary to ~org-mobile-push~ before leaving the computer and
+    triggering a ~org-mobile-pull~ to sync changes once the user is back at the
+    computer.
 
-    The current version of MobileOrg supports only syncing over
-    ~mobile-org.el~. This method is reliable and robust but needs some
-    attention from the user. It is necessary to ~org-mobile-push~
-    before leaving the computer and triggering a ~org-mobile-pull~ to
-    sync changes once the user is back at the computer.
+    Demand is high for alternative approaches like working directly with
+    org-files without any stage area and using git. Git is a popular choice
+    because many users already use git to sync org files with desktop machines.
 
-    Demand is high for alternative approaches like working directly
-    with org-files without any stage area and using git. Git is a
-    popular choice because many users already use git to sync org
-    files with desktop machines.
+    With org-mobile.el a staging area is needed. At the moment only WebDAV and
+    Dropbox are supported. There is popular demand for alternative cloud
+    services like iCloud. These services could be utilised for additional sync
+    services as described above. Because of that, the staging area is referenced
+    as cloud-storage within this document.
 
-    With org-mobile.el a staging area is needed. At the moment only
-    WebDAV and Dropbox are supported. There is popular demand for
-    alternative cloud services like iCloud. These services could
-    be utilised for additional sync services as
-    described above. Because of that, the staging area is referenced as
-    cloud-storage within this document.
-
-    Regardless of the method chosen for syncing an internal storage is
-    needed. The currently selected choice is Core Data. But as there
-    are alternatives already present today an module-approach makes
-    sense for internal-storage, too.
-    
+    Regardless of the method chosen for syncing an internal storage is needed.
+    The currently selected choice is Core Data. But as there are alternatives
+    already present today an module-approach makes sense for internal-storage,
+    too.
 
     Possible Backends for MobileOrg could be:
 
@@ -356,22 +303,19 @@
    #+NAME: backends
    [[./images/modules.png]]
 
-  Plugging at compile time should be sufficient. There is no need to
-  allow plugin of backend-modules at runtime.
+  Plugging at compile time should be sufficient. There is no need to allow
+  plugin of backend-modules at runtime.
 
 **** Properties of backend modules
+     Backend modules must be configured individually therefore it must be
+     possible to register modules to settings
 
-     Backend modules must be configured individually therefore it must
-     be possible to register modules to settings
-
-     
 *** Settings
-    
-    Settings consist of a static and dynamic part. In the static part
-    it's possible to configure app properties like behaviour of app
-    badge. The dynamic part consists of settings individual for each
-    module which has registered for configuration-settings. Possible
-    entries for dynamic settings could be:
+    Settings consist of a static and dynamic part. In the static part it's
+    possible to configure app properties like behaviour of app badge. The
+    dynamic part consists of settings individual for each module which has
+    registered for configuration-settings. Possible entries for dynamic settings
+    could be:
 
     - Storage Backend
     - Sync Backend
@@ -381,38 +325,33 @@
 
     To support settings-registry protocols should be used.
 
-    If org-mobile.el is extended to transfer also Org configuration
-    these setting could be incorporated into Settings as
-    well. Settings which could be set on the desktop machine must
-    occur in Settings in a seperate block.
+    If org-mobile.el is extended to transfer also Org configuration these
+    setting could be incorporated into Settings as well. Settings which could be
+    set on the desktop machine must occur in Settings in a seperate block.
 
     Examples of settings which could be set on desktop:
 
     - Logbook in Drawer (~(setq org-log-into-drawer 'LOGBOOK)~)
     - [[Capture]] Templates
 
-
 *** UI
+    MobileOrg's UI should support the user's work-flow. Therefore it must be
+    possible to change to UI according to one's needs.
 
-    MobileOrg's UI should support the user's work-flow. Therefore it
-    must be possible to change to UI according to one's needs.
-
-    The dynamic nature of the UI could be triggered by settings or by
-    org files.
+    The dynamic nature of the UI could be triggered by settings or by org files.
 
 **** Agenda
      :PROPERTIES:
      :CUSTOM_ID: architecture-agenda
      :END:
 
-     Org mode's [[http://orgmode.org/manual/Agenda-Views.html#Agenda-Views][Agenda]] works as a container where the information
-     cluttered in the many org files is collected and displayed to the
-     user in an organised way.
+     Org mode's [[http://orgmode.org/manual/Agenda-Views.html#Agenda-Views][Agenda]] works as a container where the information cluttered in
+     the many org files is collected and displayed to the user in an organised
+     way.
 
-     The iOS' UI works completely different to the UI Emacs serves. To
-     provide a way where Org's agendas could be reused within
-     MobileOrg would complicate the software
-     architecture. Configurable Agendas could be solution to fulfil
+     The iOS' UI works completely different to the UI Emacs serves. To provide a
+     way where Org's agendas could be reused within MobileOrg would complicate
+     the software architecture. Configurable Agendas could be solution to fulfil
      the [[#requirements-agenda][requirement]] in some way.
 
      #+CAPTION: Agenda like view on iOS
@@ -421,18 +360,13 @@
 
      [[./images/MobileOrgTaskView.png]]
 
-    
-
 *** OS Integration
-
 **** Siri
-     
-     Siri could not be utilised by SiriKit as the necessary keywords
-     as 'remind me' or 'take note' are reserved for the use with the
-     internal Reminders and Notes applications.
-     
-     One way to get Siri work with MobileOrg is to create a list in
-     Reminders resp. a folder in Notes and set them as
-     default. MobileOrg would then listen to this list or folder and
-     if a new item is present it would move the item as a new capture
-     to it's internal store.
+     Siri could not be utilised by SiriKit as the necessary keywords as 'remind
+     me' or 'take note' are reserved for the use with the internal Reminders and
+     Notes applications.
+
+     One way to get Siri work with MobileOrg is to create a list in Reminders
+     resp. a folder in Notes and set them as default. MobileOrg would then
+     listen to this list or folder and if a new item is present it would move
+     the item as a new capture to it's internal store.
