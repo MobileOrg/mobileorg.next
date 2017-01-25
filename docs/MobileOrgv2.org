@@ -205,7 +205,7 @@
 
     Encyption methods used on desktop:
 
-    - symetrical encryption (supported by org-mobile.el)
+    - symetrical encryption (supported by ~org-mobile.el~)
     - GnuPG
 
 *** Notifications
@@ -248,7 +248,7 @@
    [[./images/CoreData.png]]
 
 *** Syncing
-    The current approach to access Org files is by utilising ~org.mobile.el~,
+    The current approach to access Org files is by utilising ~org-mobile.el~,
     because it is the most reliable solution in regards to occurence of
     conflicts.
 
@@ -256,7 +256,7 @@
     backends.
 
 *** Plugable Backends
-    The current version of MobileOrg supports only syncing over ~mobile-org.el~.
+    The current version of MobileOrg supports only syncing over ~org-mobile.el~.
     This method is reliable and robust but needs some attention from the user.
     It is necessary to ~org-mobile-push~ before leaving the computer and
     triggering a ~org-mobile-pull~ to sync changes once the user is back at the
@@ -280,7 +280,7 @@
     Possible Backends for MobileOrg could be:
 
     - Sync - Backends
-      - ~mobile-org.el~
+      - ~org-mobile.el~
       - plain org-files
       - git
       - rsync over ssh
