@@ -2,13 +2,10 @@
   This document contains all the requirements, constraints and the software
   architecture for the next release of MobileOrg.
 
-  Whilst the software architecture has it's own chapter, requirements and
-  constraints are mixed in whole document.
-
   *All the links in this document are Org mode links. These are not resolved
   properly if you read this document in GitHub webview.*
 
-** Features
+** Features (Requirements)
 *** UI
 **** Views
 ***** Habits
@@ -73,6 +70,8 @@
 
      Configurable Agenda views must be provided to the user.
 
+***** Transfer Org agendas to MobileOrg 
+
      Furthermore Agenda views already configured in Org mode should be
      transfered to MobileOrg. [[#architecture-agenda][=> Architecture]]
 
@@ -82,6 +81,11 @@
      | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/145][#145]] |
      | Architecture |      |
      |--------------+------|
+
+***** Integration with iOS Calendar
+     Agenda should also integrates with iOS Calendar. The integration works only
+     in one way - it just shows items from Calendar. It doesn't modify user's
+     =org-mode= files nor it modifies iOS Calendar.
 
 **** Note Actions
      The user must be able to take actions on notes. These actions mirror the
@@ -153,6 +157,62 @@
     | Architecture |      |
     |--------------+------|
 
+**** Widgets
+    MobileOrg's UI should support the user's workflow. Therefore it must be
+    possible to change to UI according to one's needs via configurations.
+
+    Home screen of MobileOrg consists of different widgets that can be
+    enabled/disabled and rearranged by user. Generally there are two types of
+    widgets - buttons (that just lead to another view) or mini-views.
+
+     #+CAPTION: Home Screen Mockup
+     #+ATTR_HTML: width="300"
+     #+NAME: TaskView
+
+     [[file:images/MobileOrgHomeScreen1.png]]
+
+     On the example image there are 5 widgets. One named 'Forecast' is a widget
+     with a custom view. The others are simple button widgets that when clicked
+     open another view.
+
+     Notes:
+
+     - Names used in this mockup are just examples.
+     - Mockup is heavily inspired by OmniFocus home screen (especially 'Forecast' widget).
+
+     Transitions between views behave in the same way as they behave in current
+     version of MobileOrg.
+
+     Also iOS Calendar should have special widget view for home screen (similar
+     to the 'Forecast' widget on Home Screen Mockup).
+
+***** Files with Button Widget
+      Clicking 'Files' button opens 'Files' view containing the list of all files and
+      navigate/edit them. Useful for people with tons of org files.
+
+***** Files with Special View Widget
+      Custom view is just a list of files. It's like 'Files' view is injected to Home
+      Screen. Useful for users with few org files.
+
+***** Refile
+     Clicking 'Refile' button opens 'Refile' view where user can
+     refile items from the inbox file (by default =inbox.org= file,
+     possibly search query).
+
+     Also possible to implement inline variant.
+
+***** Tags
+      Clicking 'Tags' button opens 'Tags' view containing the list of all tags.
+      Clicking on any of the tags opens all of items tagged with clicked tag.
+
+      Also possible to implement inline variant.
+
+***** Nearby
+      Clicking 'Nearby' button opens 'Nearby' view containing the list of all
+      items that are tied to certain location near current location. Item is
+      tied to certain location via =LOCATION= property. We might also use
+      =LOCATION_RADIUS= (with the default set to 500 m).
+      
 *** Access from outside MobileOrg
     With iOS 8 Apple has introduced so called Extensions. Extensions could be
     Share-Extensions or Today-Extensions.
@@ -234,6 +294,16 @@
     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/15][#15]] |
     | Architecture |     |
     |--------------+-----|
+
+*** Actions
+
+**** Tagging
+
+**** Refiling
+
+**** Capture
+
+***** Store capture location
 
 ** Software Architecture
 *** Storage
@@ -335,31 +405,6 @@
     - [[Capture]] Templates
 
 *** UI
-    MobileOrg's UI should support the user's workflow. Therefore it must be
-    possible to change to UI according to one's needs via configurations.
-
-    Home screen of MobileOrg consists of different widgets that can be
-    enabled/disabled and rearranged by user. Generally there are two types of
-    widgets - buttons (that just lead to another view) or mini-views.
-
-     #+CAPTION: Home Screen Mockup
-     #+ATTR_HTML: width="300"
-     #+NAME: TaskView
-
-     [[file:images/MobileOrgHomeScreen1.png]]
-
-     On the example image there are 5 widgets. One named 'Forecast' is a widget
-     with a custom view. The others are simple button widgets that when clicked
-     open another view.
-
-     Notes:
-
-     - Names used in this mockup are just examples.
-     - Mockup is heavily inspired by OmniFocus home screen (especially 'Forecast' widget).
-
-     Transitions between views behave in the same way as they behave in current
-     version of MobileOrg.
-
 **** Agenda
      :PROPERTIES:
      :CUSTOM_ID: architecture-agenda
@@ -374,44 +419,11 @@
      the software architecture. Configurable Agendas could be solution to fulfil
      the [[#requirements-agenda][requirement]] in some way.
 
-     Agenda also integrates with iOS Calendar. The integration works only in one
-     way - it just shows items from Calendar. It doesn't modify user's
-     =org-mode= files nor it modifies iOS Calendar.
-
-     Also this agenda should have special widget view for home screen (similar
-     to the 'Forecast' widget on Home Screen Mockup).
-
      #+CAPTION: Agenda like view on iOS
      #+ATTR_HTML: width="300"
      #+NAME: TaskView
 
      [[./images/MobileOrgTaskView.png]]
-
-**** Files with Button Widget
-Clicking 'Files' button opens 'Files' view containing the list of all files and
-navigate/edit them. Useful for people with tons of org files.
-
-**** Files with Special View Widget
-Custom view is just a list of files. It's like 'Files' view is injected to Home
-Screen. Useful for users with few org files.
-
-**** Refile
-Clicking 'Refile' button opens 'Refile' view where user can refile items from
-the inbox file (by default =inbox.org= file, possibly search query).
-
-Also possible to implement inline variant.
-
-**** Tags
-Clicking 'Tags' button opens 'Tags' view containing the list of all tags.
-Clicking on any of the tags opens all of items tagged with clicked tag.
-
-Also possible to implement inline variant.
-
-**** Nearby
-Clicking 'Nearby' button opens 'Nearby' view containing the list of all items
-that are tied to certain location near current location. Item is tied to certain
-location via =LOCATION= property. We might also use =LOCATION_RADIUS= (with the
-default set to 500 m).
 
 *** OS Integration
 **** Siri
