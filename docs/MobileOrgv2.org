@@ -22,8 +22,8 @@
     | Architecture |       |
     |--------------+-------|
 
-**** All Markdown
-     Markdown supported by Org should be also supported by MobileOrg. A preview
+**** All Markup
+     Markup supported by Org should be also supported by MobileOrg. A preview
      should be presented to the user whilst editing a note.
 
 ***** Links
