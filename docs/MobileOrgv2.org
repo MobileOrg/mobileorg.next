@@ -19,6 +19,12 @@
     | Architecture |       |
     |--------------+-------|
 
+***** Timeline
+
+***** Forecast
+
+***** Files
+
 **** All Markup
      Markup supported by Org should be also supported by MobileOrg. A preview
      should be presented to the user whilst editing a note.
@@ -73,19 +79,19 @@
 ***** Transfer Org agendas to MobileOrg 
 
      Furthermore Agenda views already configured in Org mode should be
-     transfered to MobileOrg. [[#architecture-agenda][=> Architecture]]
+     transfered to MobileOrg.
 
-     |--------------+------|
-     | References:  |      |
-     |--------------+------|
-     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/145][#145]] |
-     | Architecture |      |
-     |--------------+------|
+     |--------------+--------|
+     | References:  |        |
+     |--------------+--------|
+     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/145][#145]]   |
+     | Architecture | [[#architecture-agenda][agenda]] |
+     |--------------+--------|
 
-***** Integration with iOS Calendar
-     Agenda should also integrates with iOS Calendar. The integration works only
-     in one way - it just shows items from Calendar. It doesn't modify user's
-     =org-mode= files nor it modifies iOS Calendar.
+***** Integration with iOS Calendar and/or Reminders
+     Agenda should also integrate with iOS Calendar/Reminders. The integration works only
+     in one way - it just shows items from Calendar/Reminders. It neither does modify user's
+     =org-mode= files nor it modifies iOS Calendar/Reminders.
 
 **** Widgets
      :PROPERTIES:
@@ -119,6 +125,8 @@
      Also iOS Calendar should have special widget view for home screen (similar
      to the 'Forecast' widget on Home Screen Mockup).
 
+     
+
 ***** Files with Button Widget
       Clicking 'Files' button opens 'Files' view containing the list of all files and
       navigate/edit them. Useful for people with tons of org files.
@@ -146,7 +154,6 @@
      | Requirements | [[#actions-refiling-requirement][refiling]] |
      | Architecture |          |
      |--------------+----------|
-
 
 ***** Tags
       Clicking 'Tags' button opens 'Tags' view containing the list of all tags.
@@ -267,9 +274,10 @@
      :CUSTOM_ID: actions-refiling-requirement
      :END:
 
-
      Refiling like it is available in Org should be available in MobileOrg too.
      Supported by selection lists which show the refiling targets.
+
+     Level of available refiling targets should be configurable in Settings.
 
     |--------------+---------|
     | References:  |         |
@@ -321,6 +329,25 @@
      note if configured.
 
      See also [[#architecture-capture][capture]]
+
+*** Terminology
+
+    There are many terms which are used already in Org mode. Many of them are
+    used with different meanings in the context of MobileOrg. The introduction
+    of a dictionary should help with this. 
+
+    The terms in the following table could help in finding a terminology for
+    MobileOrg.
+
+    |-----------+----------------------------|
+    | Org mode  | MobileOrg                  |
+    |           |                            |
+    | Agenda    | Dashboard                  |
+    | Org File  | Item Collection (Notebook) |
+    | Subtree   | Item                       |
+    | Scheduled | Start Date                 |
+    | Deadline  | Due Date                   |
+    |-----------+----------------------------|
 
 ** Software Architecture
 *** Storage
