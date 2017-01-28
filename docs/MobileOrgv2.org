@@ -87,77 +87,10 @@
      in one way - it just shows items from Calendar. It doesn't modify user's
      =org-mode= files nor it modifies iOS Calendar.
 
-**** Note Actions
-     The user must be able to take actions on notes. These actions mirror the
-     behaviour of Org on the desktion machine.
-
-     Possible actions:
-     - Mark as TODO/DONE or individual keywords
-     - set SCHEDULED
-     - set DEADLINE
-
-    |--------------+-----|
-    | References:  |     |
-    |--------------+-----|
-    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/51][#51]] |
-    | Architecture |     |
-    |--------------+-----|
-
-**** Edit existing Note
-     When the user edit an existing note a Logbook entry must be added to the
-     note if configured.
-
-     See also [[#architecture-capture][capture]]
-
-**** Capture
-     :PROPERTIES:
-     :CUSTOM_ID: architecture-capture
-     :END:
-
-     Creating new notes are handled as [[Capture][Captures]]. All configured templates must
-     be accessible if it makes sense in the current scope.
-
-     The location of captures should be stored with the note.
-
-    |--------------+------|
-    | References:  |      |
-    |--------------+------|
-    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/104][#104]] |
-    | Architecture |      |
-    |--------------+------|
-
-    Whilst capturing (or editing) a Note there should be shortcuts which allows
-    to enter SCHEDULED or DEADLINE times easily.
-
-    |--------------+-----|
-    | References:  |     |
-    |--------------+-----|
-    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/33][#33]] |
-    | Architecture |     |
-    |--------------+-----|
-
-**** Refiling
-     Refiling like it is available in Org should be available in MobileOrg too.
-     Supported by selection lists which show the refiling targets.
-
-    |--------------+------|
-    | References:  |      |
-    |--------------+------|
-    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/109][#109]] |
-    | Architecture |      |
-    |--------------+------|
-
-**** Sharing
-     Sharing content with other applications. Sharing should share all content.
-
-    |--------------+------|
-    | References:  |      |
-    |--------------+------|
-    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/108][#108]] |
-    | Architecture |      |
-    |--------------+------|
-
 **** Widgets
+     :PROPERTIES:
+     :CUSTOM_ID: widgets-requirement
+     :END:
     MobileOrg's UI should support the user's workflow. Therefore it must be
     possible to change to UI according to one's needs via configurations.
 
@@ -195,11 +128,25 @@
       Screen. Useful for users with few org files.
 
 ***** Refile
+     :PROPERTIES:
+     :CUSTOM_ID: widgets-refile-requirement
+     :END:
+
      Clicking 'Refile' button opens 'Refile' view where user can
      refile items from the inbox file (by default =inbox.org= file,
      possibly search query).
 
      Also possible to implement inline variant.
+
+
+     |--------------+----------|
+     | References:  |          |
+     |--------------+----------|
+     | GitHub       |          |
+     | Requirements | [[#actions-refiling-requirement][refiling]] |
+     | Architecture |          |
+     |--------------+----------|
+
 
 ***** Tags
       Clicking 'Tags' button opens 'Tags' view containing the list of all tags.
@@ -296,14 +243,84 @@
     |--------------+-----|
 
 *** Actions
+**** Marking Notes
 
-**** Tagging
+      The user must be able to take actions on notes. These actions mirror the
+      behaviour of Org on the desktop.
+
+      Possible actions:
+      - set/unset TODO/DONE or individual keywords
+      - set/unset SCHEDULED
+      - set/unset DEADLINE
+      - set/unset tags
+
+     |--------------+---------|
+     | References:  |         |
+     |--------------+---------|
+     | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/51][#51]]     |
+     | Requirements | [[#widgets-requirement][widgets]] |
+     | Architecture |         |
+     |--------------+---------|
 
 **** Refiling
+     :PROPERTIES:
+     :CUSTOM_ID: actions-refiling-requirement
+     :END:
 
-**** Capture
 
-***** Store capture location
+     Refiling like it is available in Org should be available in MobileOrg too.
+     Supported by selection lists which show the refiling targets.
+
+    |--------------+---------|
+    | References:  |         |
+    |--------------+---------|
+    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/109][#109]]    |
+    | Requirements | [[#widgets-refile-requirement][widgets]] |
+    | Architecture |         |
+    |--------------+---------|
+
+**** Capturing
+     :PROPERTIES:
+     :CUSTOM_ID: architecture-capture
+     :END:
+
+     Creating new notes are handled as [[Capture][Captures]]. All configured templates must
+     be accessible if it makes sense in the current scope.
+
+     The location of captures should be stored with the note.
+
+    |--------------+------|
+    | References:  |      |
+    |--------------+------|
+    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/104][#104]] |
+    | Architecture |      |
+    |--------------+------|
+
+    Whilst capturing (or editing) a Note there should be shortcuts which allows
+    to enter SCHEDULED or DEADLINE times easily.
+
+    |--------------+-----|
+    | References:  |     |
+    |--------------+-----|
+    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/33][#33]] |
+    | Architecture |     |
+    |--------------+-----|
+
+**** Sharing
+     Sharing content with other applications. Sharing should share all content.
+
+    |--------------+------|
+    | References:  |      |
+    |--------------+------|
+    | GitHub       | [[https://github.com/MobileOrg/mobileorg/issues/108][#108]] |
+    | Architecture |      |
+    |--------------+------|
+
+**** Editing existing Note
+     When the user edit an existing note a Logbook entry must be added to the
+     note if configured.
+
+     See also [[#architecture-capture][capture]]
 
 ** Software Architecture
 *** Storage
