@@ -1,5 +1,9 @@
 * MobileOrg v2 aka The Big Rewrite
 
+:BEGIN_QUOTE:
+Do iPhones dream of electric unicorns?
+:END:
+
 This repository hosts documentation, source code and all other files
 related to MobileOrg v2. Whereas feature requests are handled in the
 [[https://github.com/MobileOrg/mobileorg][main repository]], everything else like tasks or defects are handled

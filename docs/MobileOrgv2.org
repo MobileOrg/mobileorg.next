@@ -1,4 +1,5 @@
 * Mobile Org (v2)
+
   This document contains all the requirements, constraints and the software
   architecture for the next release of MobileOrg.
 
@@ -26,10 +27,20 @@
 ***** Files
 
 **** All Markup
+     :PROPERTIES:
+     :CUSTOM_ID: markup-requirement
+     :END:
+
+
      Markup supported by Org should be also supported by MobileOrg. A preview
      should be presented to the user whilst editing a note.
 
 ***** Links
+     :PROPERTIES:
+     :CUSTOM_ID: link-requirement
+     :END:
+
+
       Org on the mac can link to Apple Mail messages. Those links could be used
       on iOS to link to the according message in iOS Mail.
 
@@ -328,7 +339,32 @@
      When the user edit an existing note a Logbook entry must be added to the
      note if configured.
 
-     See also [[#architecture-capture][capture]]
+     |--------------+---------|
+     | References:  |         |
+     |--------------+---------|
+     | GitHub       |         |
+     | Requirements | [[#architecture-capture][capture]] |
+     | Architecture |         |
+     |--------------+---------|
+
+     If Org mode is used as a writing-environment, it would be a nice addition
+     if MobileOrg could provide support for writing  whilst the user is on the go.
+     Such support could be provided by:
+
+     - Shortcuts for markup or cross references
+     - Keyboard support for markup
+     - Allow editing of a whole item collection (document) in one screen
+
+     |--------------+---------------|
+     | References:  |               |
+     |--------------+---------------|
+     | GitHub       |               |
+     | Requirements | [[#markup-requirement][markup]], [[#link-requirement][links]] |
+     | Architecture |               |
+     |--------------+---------------|
+
+     
+
 
 *** Terminology
 
