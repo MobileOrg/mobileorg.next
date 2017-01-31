@@ -87,7 +87,7 @@
 
      Configurable Agenda views must be provided to the user.
 
-***** Transfer Org agendas to MobileOrg 
+***** Transfer Org agendas to MobileOrg
 
      Furthermore Agenda views already configured in Org mode should be
      transfered to MobileOrg.
@@ -136,7 +136,7 @@
      Also iOS Calendar should have special widget view for home screen (similar
      to the 'Forecast' widget on Home Screen Mockup).
 
-     
+
 
 ***** Files with Button Widget
       Clicking 'Files' button opens 'Files' view containing the list of all files and
@@ -151,12 +151,20 @@
      :CUSTOM_ID: widgets-refile-requirement
      :END:
 
-     Clicking 'Refile' button opens 'Refile' view where user can
-     refile items from the inbox file (by default =inbox.org= file,
-     possibly search query).
+     Clicking 'Refile' button opens 'Refile' view where user can refile items
+     from the 'inbox'. Usually inbox is used as a target for capturing and
+     contains items that user should refile (move to a proper place).
 
-     Also possible to implement inline variant.
+     Some people use separate file for the inbox. But others use special heading
+     in general org file.
 
+     So we should allow users to configure inbox file name (defaulting to
+     =inbox.org=) and optionally header containing inbox items (for example,
+     =General/Inbox=).
+
+     Also possible to implement inline widget variant.
+
+     Note that Inbox can be used as a target for Capturing.
 
      |--------------+----------|
      | References:  |          |
@@ -177,7 +185,7 @@
       items that are tied to certain location near current location. Item is
       tied to certain location via =LOCATION= property. We might also use
       =LOCATION_RADIUS= (with the default set to 500 m).
-      
+
 *** Access from outside MobileOrg
     With iOS 8 Apple has introduced so called Extensions. Extensions could be
     Share-Extensions or Today-Extensions.
@@ -363,14 +371,14 @@
      | Architecture |               |
      |--------------+---------------|
 
-     
+
 
 
 *** Terminology
 
     There are many terms which are used already in Org mode. Many of them are
     used with different meanings in the context of MobileOrg. The introduction
-    of a dictionary should help with this. 
+    of a dictionary should help with this.
 
     The terms in the following table could help in finding a terminology for
     MobileOrg.
